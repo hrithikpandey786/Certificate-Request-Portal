@@ -1,0 +1,15 @@
+// :root {
+//     --navbar-height: 60px; // Adjust this value based on your navbar's height
+//   }
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.01);
+    // position: relative;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}

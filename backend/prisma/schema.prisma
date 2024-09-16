@@ -1,0 +1,185 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model EnrolledStudent{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  enrolmentNo Int @unique
+  name String
+  dob DateTime @db.Date 
+}
+
+model RegisteredStudent{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  enrolmentNo Int @unique
+  name String
+  dob DateTime @db.Date
+  email String @unique
+  phoneNumber Int @unique
+  department String
+  course String
+  gender String
+  password String
+}
+
+model DegreeRequest{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  enrolmentNo Int @unique
+  name String
+  fatherName String
+  motherName String
+  dob DateTime @db.Date
+  email String @unique
+  phoneNumber Int @unique
+  department String
+  course String
+  gender String
+  admissionYear Int
+  resultDate DateTime @db.Date
+  status String @default("Pending at Department")
+  address String
+  pincode Int
+  reappearance String
+}
+
+model MigrationRequest{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  enrolmentNo Int @unique
+  name String
+  fatherName String
+  motherName String
+  dob DateTime @db.Date
+  email String @unique
+  phoneNumber Int @unique
+  department String
+  course String
+  gender String
+  admissionYear Int
+  resultDate DateTime @db.Date
+  status String @default("Pending at Department")
+  address String
+  pincode Int
+  reappearance String
+}
+
+model Faculty{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String @unique
+  facultyName String @unique
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// model PhoneNumber{
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+//   departmentId String @db.ObjectId
+//   number Int @unique
+//   department Department @relation(fields:[departmentId], references: [id])
+// }
+
+// model Admin{
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+//   name String
+//   email String @unique
+//   phoneNumber Int @unique
+//   department String
+//   position String
+//   password String
+//   createdAt DateTime @default(now())
+// }
